@@ -1,13 +1,14 @@
 package br.com.cardinalidade.exercicio03;
 
+import br.com.cardinalidade.exercicio02.Permissao;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
 
-@Entity
-@Table(name = "tb_usuarios", schema = "cardinalidade")
+@Entity(name = "usuario2")
+@Table(name = "tb_usuarios2", schema = "cardinalidade")
 public class Usuario extends AbstractEntity {
 
     @Getter @Setter
@@ -27,11 +28,11 @@ public class Usuario extends AbstractEntity {
     private String login;
 
     @Getter @Setter
-    @Column(name = "placa", length = 20, nullable = false)
+    @Column(name = "senha", length = 20, nullable = false)
     private String senha;
 
     @Getter @Setter
     @JoinColumn(name = "telefones_id", nullable = false)
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(targetEntity = Telefone.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Telefone> telefone;
 }

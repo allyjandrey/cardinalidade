@@ -28,6 +28,6 @@ public class Telefone extends AbstractEntity {
     private String ddd;
 
     @Getter @Setter
-    @Column(name = "nome", length = 10)
+    @Column(name = "numero", length = 10)
     private String numero;
 }

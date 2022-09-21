@@ -2,10 +2,11 @@ package br.com.cardinalidade.exercicio02;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Fetch;
+import org.w3c.dom.stylesheets.LinkStyle;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "tb_grupos", schema = "cardinalidade")
@@ -20,6 +21,7 @@ public class Grupo extends AbstractEntity {
     private String descricao;
 
     @Getter @Setter
-    @Column(name = "regras", nullable = false)
-    private String regras;
+    @ManyToMany(targetEntity = Permissao.class, fetch = FetchType.EAGER)
+    @JoinColumn(name = "regras", nullable = false)
+    private List<Permissao> regras;
 }
