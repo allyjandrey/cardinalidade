@@ -23,5 +23,5 @@ public class Grupo extends AbstractEntity {
     @Getter @Setter
     @ManyToMany(targetEntity = Permissao.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "regras", nullable = false)
-    private List<Permissao> regras;
+    private List<Permissao> permissoes;
 }

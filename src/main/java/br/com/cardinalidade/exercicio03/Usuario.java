@@ -1,6 +1,5 @@
 package br.com.cardinalidade.exercicio03;
 
-import br.com.cardinalidade.exercicio02.Permissao;
 import lombok.Getter;
 import lombok.Setter;
 

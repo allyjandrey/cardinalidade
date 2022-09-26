@@ -21,7 +21,7 @@ public class Permissao extends AbstractEntity {
 
     @Getter @Setter
     @Column(name = "regras", length = 100, nullable = false, unique = true)
-    private String regras;
+    private String regra;
 
     @Getter @Setter
     @Column(name = "funcionalidade", length = 100, nullable = false)
