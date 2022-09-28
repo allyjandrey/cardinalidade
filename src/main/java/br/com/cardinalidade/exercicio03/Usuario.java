@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity(name = "usuario2")
-@Table(name = "tb_usuarios2", schema = "cardinalidade")
+@Table(name = "tb_usuarios2", schema = "exercicio03")
 public class Usuario extends AbstractEntity {
 
     @Getter @Setter

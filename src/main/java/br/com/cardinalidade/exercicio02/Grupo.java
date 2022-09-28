@@ -2,14 +2,12 @@ package br.com.cardinalidade.exercicio02;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.Fetch;
-import org.w3c.dom.stylesheets.LinkStyle;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "tb_grupos", schema = "cardinalidade")
+@Table(name = "tb_grupos", schema = "exercicio02")
 public class Grupo extends AbstractEntity {
 
     @Getter @Setter
@@ -21,7 +19,10 @@ public class Grupo extends AbstractEntity {
     private String descricao;
 
     @Getter @Setter
-    @ManyToMany(targetEntity = Permissao.class, fetch = FetchType.EAGER)
-    @JoinColumn(name = "regras", nullable = false)
+    @JoinColumn(name = "permissoes", nullable = false)
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST}, targetEntity = Permissao.class, fetch = FetchType.EAGER)
+    @JoinTable(name = "grupo_permissao", schema = "cardinalidade",
+            joinColumns = @JoinColumn(name = "id_grupo"),
+            inverseJoinColumns = @JoinColumn(name = "id_permissao"))
     private List<Permissao> permissoes;
 }

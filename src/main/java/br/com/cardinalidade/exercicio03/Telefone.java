@@ -1,6 +1,5 @@
 package br.com.cardinalidade.exercicio03;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tb_telefones", schema = "cardinalidade")
+@Table(name = "tb_telefones", schema = "exercicio03")
 public class Telefone extends AbstractEntity {
 
     @Getter @Setter

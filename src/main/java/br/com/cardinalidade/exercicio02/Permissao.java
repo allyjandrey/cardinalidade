@@ -3,12 +3,11 @@ package br.com.cardinalidade.exercicio02;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name = "tb_permissoes", schema = "cardinalidade")
+@Table(name = "tb_permissoes", schema = "exercicio02")
 public class Permissao extends AbstractEntity {
 
     @Getter @Setter
@@ -20,7 +19,7 @@ public class Permissao extends AbstractEntity {
     private String descricao;
 
     @Getter @Setter
-    @Column(name = "regras", length = 100, nullable = false, unique = true)
+    @Column(name = "regra", length = 100, nullable = false, unique = true)
     private String regra;
 
     @Getter @Setter
@@ -30,4 +29,8 @@ public class Permissao extends AbstractEntity {
     @Getter @Setter
     @Column(name = "acao", length = 100, nullable = false)
     private String acao;
+
+    @Getter @Setter
+    @ManyToMany(mappedBy ="permissoes")
+    private List<Grupo> grupos;
 }
